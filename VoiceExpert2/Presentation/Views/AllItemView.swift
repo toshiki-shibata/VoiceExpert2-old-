@@ -10,9 +10,9 @@ import CoreData
 
 struct AllItemView: View {
     @ObservedObject var viewModel = AllItemViewModel()
-
+    
     @State private var isShowingAddItemView: Bool = false
-
+    
     var body: some View {
         NavigationView {
             ZStack {
@@ -21,29 +21,36 @@ struct AllItemView: View {
                         DetailView(item: item)
                     } label: {
                         ItemCell(item: item)
-
                     }
-
                 }
                 .listStyle(InsetGroupedListStyle())
-                FloatingButton {
-                    isShowingAddItemView.toggle()
+                NavigationLink(destination: AddItemView()) {
+                    Image(systemName: "pencil")
+                        .foregroundColor(.white)
+                        .font(.system(size: 24))
+                        .frame(width: 60, height: 60)
+                        .background(Color.orange)
+                        .cornerRadius(30.0)
+                        .shadow(color: .gray, radius: 3, x: 3, y: 3)
+                        .padding(EdgeInsets(top: 0, leading: 0, bottom: 16.0, trailing: 16.0))
                 }
             }
             .navigationTitle("すべて")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Text("仮")
+                    Menu {
+                        Button("検索", action: {print("テスト")})
+                    } label: {
+                        Label("", systemImage: "ellipsis.circle")
+                    }
                 }
             }
         }
-//                FloatingButton()
     }
 }
-
-    struct ContentView_Previews: PreviewProvider {
-        static var previews: some View {
-            AllItemView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
-        }
-    }
+//struct ContentView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        AllItemView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+//    }
+//}

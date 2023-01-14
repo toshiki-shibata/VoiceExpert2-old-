@@ -29,13 +29,23 @@ struct ItemCell: View {
                     .lineLimit(2)
                 HStack {
                     Spacer()
-                    Text(item.timestamp!, style: .date)
+                    Text(item.hasCreated ?? Date() , style: .date)
                         .font(.footnote)
                 }
             }
-            Button(action: {}) {
-                Image(systemName: "house")
+            Menu {
+                Button("削除", action: { })
+            } label: {
+                Label("", systemImage: "ellipsis.circle")
             }
+            
+//            Button(action: {
+//                print("テスト")
+//            }) {
+//                Image(systemName: "ellipsis.circle")
+//                    .font(.system(size: 24))
+//                    .frame(width: 44, height: 44)
+//            }.buttonStyle(.plain)
         }
 //        Divider()
     }

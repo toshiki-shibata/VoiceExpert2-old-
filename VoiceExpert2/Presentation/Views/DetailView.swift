@@ -10,30 +10,35 @@ import CoreData
 
 struct DetailView: View {
     let item: Item
+    private let viewModel = DetailViewModel()
 
     @State var text = ""
 
     var body: some View {
         NavigationView {
+            
             VStack {
-                TextEditor(text: $text)
-                HStack {
-                    VStack {
-                        Image(systemName: "folder")
-                        Text("エクスポート")
+                TextArea("ここに入力してください", text: $text)
+                    .onAppear() {
+                        self.text = item.body ?? ""
                     }
-                    VStack {
-                        Image(systemName: "folder")
-                        Text("エクスポート")
-                    }
-                    VStack {
-                        Image(systemName: "folder")
-                        Text("書き出し")
+            }
+            .navigationBarTitle(item.title ?? "", displayMode: .inline)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Menu {
+                        Button("タイトル変更", action: {  })
+                        Button("読み上げ", action: { viewModel.speech() })
+                        Button("メモの出力", action: { })
+                        Button("音声ファイル書き出し", action:  { viewModel.create() })
+                        Button("情報", action: {  })
+                        
+                    } label: {
+                        Label("", systemImage: "ellipsis.circle")
                     }
                 }
+
             }
-            .navigationTitle(item.title ?? "")
-            .navigationBarTitleDisplayMode(.inline)
             .toolbar(.hidden, for: .tabBar)
         }
     }

@@ -15,29 +15,7 @@ class CoreDataManager {
     var viewContext: NSManagedObjectContext {
         return persistentStoreContainer.viewContext
     }
-    
-    func fetchAllItems() -> [Item] {
-        let request: NSFetchRequest<Item> = Item.fetchRequest()
-        do {
-            return try viewContext.fetch(request)
-        } catch {
-            return []
-        }
-    }
-    
-    func save() {
-        do {
-            try viewContext.save()
-        } catch {
-            viewContext.rollback()
-            print(error.localizedDescription)
-        }
-    }
-    
-    func delete() {
-        
-    }
-    
+
     private init() {
         persistentStoreContainer = NSPersistentContainer(name: "VoiceExpert2")
         persistentStoreContainer.loadPersistentStores { description, error in

@@ -7,6 +7,6 @@
 
 import SwiftUI
 
-enum Error {
+enum VE2Error: LocalizedError {
     case unexpected
 }

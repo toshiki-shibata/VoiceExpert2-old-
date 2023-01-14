@@ -7,12 +7,12 @@
 
 import Foundation
 
-class ItemRepositoryProtocol {
-    func save(item: Item) {
+protocol ItemRepositoryProtocol {
+    func save(body: String)
 
-    }
-
-    func fetchItems() {
-
-    }
+    func fetch() -> [Item]
+    
+    func delete(item :Item)
+    
+    func update()
 }
