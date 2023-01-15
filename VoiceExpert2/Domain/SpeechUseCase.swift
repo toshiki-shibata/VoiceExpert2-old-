@@ -21,7 +21,7 @@ class SpeechUseCase: NSObject {
     private override init() {
         super.init()
         synthesizer.delegate = self
-    }
+    }sss
     
     func play(speech: Speech) {
         let utterance = AVSpeechUtterance(string: speech.text)
