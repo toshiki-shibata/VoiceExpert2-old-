@@ -12,7 +12,7 @@ class SpeechUseCase: NSObject {
     static let shared = SpeechUseCase()
     @Published var state: State = .inactive
     
-    enum State {
+    enum State {gfff
         case inactive, speaking, paused
     }
     
