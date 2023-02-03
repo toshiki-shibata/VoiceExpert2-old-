@@ -7,3 +7,13 @@
 
 import Foundation
 
+extension Date {
+    
+    //例 2023/01/23 61:37
+    func toString() -> String {
+        let formatter = DateFormatter()
+        formatter.timeStyle = .medium
+        formatter.dateStyle = .short
+        return formatter.string(from: self)
+    }
+}

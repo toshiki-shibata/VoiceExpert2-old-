@@ -20,7 +20,7 @@ struct AddItemView: View {
         }
         .navigationBarTitle("新規作成", displayMode: .inline)
         .navigationBarItems(leading: Button(action: {
-            ItemRepositoryImpl().save(body: text)
+//            ItemRepositoryImpl().save(body: text)
         }, label: {
             Image(systemName: "checkmark")
         }))

@@ -12,7 +12,7 @@ class SpeechUseCase: NSObject {
     static let shared = SpeechUseCase()
     @Published var state: State = .inactive
     
-    enum State {gfff
+    enum State {
         case inactive, speaking, paused
     }
     
@@ -21,7 +21,7 @@ class SpeechUseCase: NSObject {
     private override init() {
         super.init()
         synthesizer.delegate = self
-    }sss
+    }
     
     func play(speech: Speech) {
         let utterance = AVSpeechUtterance(string: speech.text)

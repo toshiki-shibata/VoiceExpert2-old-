@@ -18,13 +18,13 @@ struct ItemCell: View {
             Image(systemName: "folder")
             VStack {
                 HStack {
-                    Text(item.title!)
+                    Text(item.title)
                         .font(.title)
                         .lineLimit(1)
                         .padding(.leading)
                     Spacer()
                 }
-                Text(item.body!)
+                Text(item.body)
                     .font(.body)
                     .lineLimit(2)
                 HStack {

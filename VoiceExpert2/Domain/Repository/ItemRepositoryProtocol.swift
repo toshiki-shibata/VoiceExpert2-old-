@@ -8,7 +8,7 @@
 import Foundation
 
 protocol ItemRepositoryProtocol {
-    func save(body: String)
+    func save(item: Item)
 
     func fetch() -> [Item]
     

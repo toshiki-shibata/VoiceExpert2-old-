@@ -8,12 +8,12 @@
 import Foundation
 import CoreData
 
-class ItemRepositoryImpl: ItemRepositoryProtocol {
+class ItemDao {
     
     private let coreDataManager = CoreDataManager.shared
     
-    func fetch() -> [Item] {
-        let request: NSFetchRequest<Item> = Item.fetchRequest()
+    func fetch() -> [ItemCoreDataObject] {
+        let request: NSFetchRequest<ItemCoreDataObject> = ItemCoreDataObject.fetchRequest()
         do {
             return try coreDataManager.viewContext.fetch(request)
         } catch {
@@ -22,7 +22,7 @@ class ItemRepositoryImpl: ItemRepositoryProtocol {
         }
     }
     
-    func delete(item: Item) {
+    func delete(item: ItemCoreDataObject) {
         coreDataManager.viewContext.delete(item)
         do{
             try coreDataManager.viewContext.save()
@@ -39,12 +39,12 @@ class ItemRepositoryImpl: ItemRepositoryProtocol {
         }
     }
     
-    func save(body: String) {
-        let newItem = Item(context: coreDataManager.viewContext)
+    func save(item: Item) {
+        let newItem = ItemCoreDataObject(context: coreDataManager.viewContext)
         newItem.id = UUID()
         newItem.hasCreated = Date()
-        newItem.body = body
-        newItem.title = "テスト"
+        newItem.body = item.body
+        newItem.title = item.title
         do {
             try coreDataManager.viewContext.save()
         } catch {
