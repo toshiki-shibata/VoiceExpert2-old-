@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="true" userDefinedModelVersionIdentifier="">
-    <entity name="Item" representedClassName="Item" syncable="YES" codeGenerationType="class">
-        <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21513" systemVersion="21G83" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
+    <entity name="ItemCoreDataObject" representedClassName="ItemCoreDataObject" syncable="YES" codeGenerationType="class">
+        <attribute name="body" attributeType="String" defaultValueString=""/>
+        <attribute name="hasCreated" attributeType="Date" defaultDateTimeInterval="696675360" usesScalarValueType="NO"/>
+        <attribute name="hasUpdated" attributeType="Date" defaultDateTimeInterval="696675360" usesScalarValueType="NO"/>
+        <attribute name="id" attributeType="UUID" defaultValueString="0CF044A3-333C-4B22-8FEB-F68B004B6C96" usesScalarValueType="NO"/>
+        <attribute name="title" attributeType="String" defaultValueString=""/>
     </entity>
-    <elements>
-        <element name="Item" positionX="-63" positionY="-18" width="128" height="44"/>
-    </elements>
 </model>
