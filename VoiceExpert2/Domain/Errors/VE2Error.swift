@@ -9,4 +9,5 @@ import SwiftUI
 
 enum VE2Error: LocalizedError {
     case unexpected
+    case offline
 }
